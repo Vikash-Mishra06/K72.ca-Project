@@ -29,10 +29,15 @@ const Agence = () => {
     gsap.to(imageDivRef.current, {
       scrollTrigger: {
         trigger: imageDivRef.current,
-        markers: true,
         start: 'top 24.5%',
         end: 'top -100%',
         pin: true,
+        pinSpacing:true,
+        pinReparent:true,
+        pinType:'transform',
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (elem) => {
           let imageIndex;
 
@@ -49,9 +54,9 @@ const Agence = () => {
   })
 
   return (
-    <div>
-      <div className='section-1'>
-        <div ref={imageDivRef} className='h-[20vw] w-[15vw] overflow-hidden rounded-3xl absolute top-45 left-[30vw] '>
+    <div className='parent'>
+      <div className='section-1 py-1'>
+        <div ref={imageDivRef} className='h-[20vw] w-[15vw] overflow-hidden rounded-3xl absolute top-95 left-[30vw] '>
           <img ref={imageRef} className='h-full w-full object-cover ' src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg" alt="" />
         </div>
         <div className='font-[font1] relative'>
